@@ -2,6 +2,10 @@ var express = require('express');
 var app = express();
 
 app.get('/', function (req, res) {
+  axios.get('/http://res.cloudinary.com/apfranzen/image/list/photon.json')
+  .then((response) => {
+    res.send(response);
+  })
   res.send('Hello World!');
 });
 
