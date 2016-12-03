@@ -5,7 +5,12 @@ var axios = require('axios');
 app.get('/', function (req, res) {
   axios.get('http://res.cloudinary.com/apfranzen/image/list/photon.json')
   .then((response) => {
-    res.send(response);
+    // res.send(response);
+    console.log(response);
+    res.status(200).json({
+      status: 'success',
+      data: response.data
+    });
   })
   .catch(function (error) {
     console.log(error);
