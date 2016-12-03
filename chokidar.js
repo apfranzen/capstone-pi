@@ -13,7 +13,7 @@ watcher
   // .on('add', path => {
   //   console.log();
   // }
-  log(`File ${path} has been added`))
+  .on('add', path => log(`File ${path} has been added`))
   .on('add', path => log(`File ${path} has been added`))
   .on('change', path => log(`File ${path} has been changed`))
   .on('unlink', path => log(`File ${path} has been removed`));
