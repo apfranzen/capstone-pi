@@ -3,11 +3,13 @@ var app = express();
 var axios = require('axios');
 
 app.get('/', function (req, res) {
-  axios.get('/http://res.cloudinary.com/apfranzen/image/list/photon.json')
+  axios.get('http://res.cloudinary.com/apfranzen/image/list/photon.json')
   .then((response) => {
     res.send(response);
   })
-  res.send('Hello World!');
+  .catch(function (error) {
+    console.log(error);
+  });
 });
 
 var server = app.listen(3000, function () {
