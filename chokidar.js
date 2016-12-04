@@ -4,7 +4,6 @@ var cloudinary = require('cloudinary');
 
 // Cloudinary Config
 
-
 // Initialize watcher.
 var matchers = [
   '*.bts'
