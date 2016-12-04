@@ -10,7 +10,7 @@ var matchers = [
 ]
 
 
-var watcher = chokidar.watch('./pictures/*.jpg', {
+var watcher = chokidar.watch('../data/syncaod/pics', {
   ignoreInitial: true,
   persistent: true,
   ignored: /[\/\\]\./
