@@ -2,9 +2,17 @@ var chokidar = require('chokidar');
 var rp = require('request-promise');
 var cloudinary = require('cloudinary');
 
+// Cloudinary Config
+
+
 // Initialize watcher.
-var watcher = chokidar.watch('./pics', {
-  ignored: /[\/\\]\./,
+var matchers = [
+  '*.bts'
+]
+
+
+var watcher = chokidar.watch('./pictures/*.jpg', {
+  ignoreInitial: true,
   persistent: true
 });
 
@@ -13,6 +21,7 @@ var log = console.log.bind(console);
 // Add event listeners.
 watcher
   .on('add', path => {
+    console.log(path);
     var options = {
       uri: 'https://ml.internalpositioning.com/location?group=precisepointer&user=yolo'
     };
@@ -36,14 +45,12 @@ watcher
          },
         function(error, result) {
           console.log('cloudinary result: ', result);
-          console.log('cloudinary error: ', error);
+          if(error){
+            console.log('cloudinary error: ', error);
+          }
         });
       })
       .catch(function (err) {
         console.log('err: ', err);
       })
   })
-  // .on('add', path => log(`File ${path} has been added`))
-  .on('add', path => log(`File ${path} has been added`))
-  .on('change', path => log(`File ${path} has been changed`))
-  .on('unlink', path => log(`File ${path} has been removed`));
