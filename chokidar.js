@@ -13,7 +13,8 @@ var matchers = [
 
 var watcher = chokidar.watch('./pictures/*.jpg', {
   ignoreInitial: true,
-  persistent: true
+  persistent: true,
+  ignored: /[\/\\]\./
 });
 
 // Something to use when events are received.
