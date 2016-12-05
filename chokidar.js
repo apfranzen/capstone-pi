@@ -1,16 +1,9 @@
 var chokidar = require('chokidar');
 var rp = require('request-promise');
 var cloudinary = require('cloudinary');
+var cloudAuth = require('./cloudinary_auth.js');
 
-// Cloudinary Config
-
-// Initialize watcher.
-var matchers = [
-  '*.bts'
-]
-
-
-var watcher = chokidar.watch('../data/syncaod/pics', {
+var watcher = chokidar.watch('./pictures/*.jpg', {
   ignoreInitial: true,
   persistent: true,
   ignored: /[\/\\]\./
