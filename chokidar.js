@@ -38,6 +38,28 @@ watcher
          },
         function(error, result) {
           console.log('cloudinary result: ', result);
+          console.log('cloudinary public_id: ', result.public_id);
+          console.log('cloudinary room: ', payload.users.yolo[0].location);
+          console.log('cloudinary imageDirection: ', result.image_metadata.GPSImgDirection);
+          // POST image data to server
+            var postPic = {
+              method:'POST',
+              uri: 'http://10.2.12.202:3000/inbound/pic',
+              body: {
+                // room: payload.users.yolo[0].location,
+                room: 'Classroom',
+                orientation: result.image_metadata.GPSImgDirection,
+                pic_url: result.public_id,
+                project: 'Galvanize'
+              },
+              json: true
+            };
+
+            rp(postPic)
+              .then(function (postPicResponse) {
+                console.log('postPicResponse sent: ', postPicResponse);
+              })
+              
           if(error){
             console.log('cloudinary error: ', error);
           }
