@@ -1,8 +1,8 @@
 # cloudinary auth
 cloudinaryAuth.js
 
-./pictures
-./pics
+pictures
+pics
 
 # Logs
 logs
