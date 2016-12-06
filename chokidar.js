@@ -33,7 +33,7 @@ watcher
            room: location,
           },
           use_filename: true,
-          folder: 'galvanize',
+          // folder: 'galvanize',
           image_metadata: true
          },
         function(error, result) {
@@ -59,7 +59,7 @@ watcher
               .then(function (postPicResponse) {
                 console.log('postPicResponse sent: ', postPicResponse);
               })
-              
+
           if(error){
             console.log('cloudinary error: ', error);
           }
