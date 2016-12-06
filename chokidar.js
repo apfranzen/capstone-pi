@@ -37,9 +37,6 @@ watcher
           image_metadata: true
          },
         function(error, result) {
-          var cloudinarypayloadstring = JSON.stringify(result);
-          var cloudinarypayloadjson = JSON.parse(cloudinarypayloadstring);
-          // console.log('cloudinary result: ', cloudinarypayloadjson.public_id);
           console.log('cloudinary public_id: ', result.public_id);
           console.log('cloudinary room: ', payload.users.yolo[0].location);
           console.log('cloudinary imageDirection: ', result.image_metadata.GPSImgDirection);
