@@ -16,16 +16,14 @@ watcher
   .on('add', path => {
     console.log(path);
     var options = {
-      uri: 'https://ml.internalpositioning.com/location?group=cautiouscgamois&user=anderson'
+      uri: 'https://ml.internalpositioning.com/location?group=precisepointer&user=yolo'
     };
 
     rp(options)
       .then(function (findpayload) {
         var payload = JSON.parse(findpayload);
-        console.log(payload);
-        console.log('payload: ', payload);
-        var location = payload.users.anderson[0].location;
-        // console.log(payload.users.yolo[0].location);
+        var location = payload.users.yolo[0].location;
+        console.log(payload.users.yolo[0].location);
 
         console.log('path: ', path);
         // upload picture to cloudinary
@@ -35,7 +33,7 @@ watcher
            room: location,
           },
           use_filename: true,
-          // folder: 'galvanize',
+          folder: 'galvanize',
           image_metadata: true
          },
         function(error, result) {
@@ -48,20 +46,14 @@ watcher
               method:'POST',
               uri: 'http://10.2.12.202:3000/inbound/pic',
               body: {
-                room: payload.users.yolo[0].location,
-                // room: 'Classroom',
+                // room: payload.users.yolo[0].location,
+                room: 'Classroom',
                 orientation: result.image_metadata.GPSImgDirection,
                 pic_url: result.public_id,
-                project: 'Anderson Residence'
+                project: 'Galvanize'
               },
               json: true
             };
-
-            rp(postPic)
-              .then(function (postPicResponse) {
-                console.log('postPicResponse sent: ', postPicResponse);
-              })
-
           if(error){
             console.log('cloudinary error: ', error);
           }
