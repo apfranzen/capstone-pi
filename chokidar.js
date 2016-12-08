@@ -59,13 +59,12 @@ watcher
  +              .then(function (postPicResponse) {
  +                console.log('postPicResponse sent: ', postPicResponse);
  +              })
-          // error from heroku
-          if(error){
-            console.log('cloudinary error: ', error);
-          }
-        });
-      })
-      .catch(function (err) {
-        console.log('err: ', err);
-      })
-  })
+            if(error){
+              console.log('cloudinary error: ', error);
+            }
+         });
+       })
+       .catch(function (err) {
+         console.log('err: ', err);
+       })
+   })
