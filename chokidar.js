@@ -16,13 +16,13 @@ watcher
   .on('add', path => {
     console.log(path);
     var options = {
-      uri: 'https://ml.internalpositioning.com/location?group=precisepointer&user=yolo'
+      uri: 'https://ml.internalpositioning.com/location?group=catiouscgamois&user=anderson'
     };
 
     rp(options)
       .then(function (findpayload) {
         var payload = JSON.parse(findpayload);
-        var location = payload.users.yolo[0].location;
+        var location = payload.users.anderson[0].location;
         console.log(payload.users.yolo[0].location);
 
         console.log('path: ', path);
@@ -46,11 +46,11 @@ watcher
               method:'POST',
               uri: 'http://10.2.12.202:3000/inbound/pic',
               body: {
-                // room: payload.users.yolo[0].location,
-                room: 'Classroom',
+                room: payload.users.yolo[0].location,
+                // room: 'Classroom',
                 orientation: result.image_metadata.GPSImgDirection,
                 pic_url: result.public_id,
-                project: 'Galvanize'
+                project: 'Anderson Residence'
               },
               json: true
             };
