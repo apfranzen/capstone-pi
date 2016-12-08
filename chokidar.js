@@ -37,7 +37,6 @@ watcher
           image_metadata: true
          },
         function(error, result) {
-          console.log('cloudinary result: ', result);
           console.log('cloudinary public_id: ', result.public_id);
           console.log('cloudinary room: ', payload.users.yolo[0].location);
           console.log('cloudinary imageDirection: ', result.image_metadata.GPSImgDirection);
@@ -54,17 +53,17 @@ watcher
               },
               json: true
             };
-            // post picture to heroku
+
             rp(postPic)
- +              .then(function (postPicResponse) {
- +                console.log('postPicResponse sent: ', postPicResponse);
- +              })
-            if(error){
-              console.log('cloudinary error: ', error);
-            }
-         });
-       })
-       .catch(function (err) {
-         console.log('err: ', err);
-       })
-   })
+              .then(function (postPicResponse) {
+                console.log('postPicResponse sent: ', postPicResponse);
+              })
+          if(error){
+            console.log('cloudinary error: ', error);
+          }
+        });
+      })
+      .catch(function (err) {
+        console.log('err: ', err);
+      })
+  })
