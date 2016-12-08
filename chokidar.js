@@ -16,7 +16,7 @@ watcher
   .on('add', path => {
     console.log(path);
     var options = {
-      uri: 'https://ml.internalpositioning.com/location?group=catiouscgamois&user=anderson'
+      uri: 'https://ml.internalpositioning.com/location?group=cautiouscgamois&user=anderson'
     };
 
     rp(options)
