@@ -22,8 +22,9 @@ watcher
     rp(options)
       .then(function (findpayload) {
         var payload = JSON.parse(findpayload);
+        console.log(payload);
         var location = payload.users.anderson[0].location;
-        console.log(payload.users.yolo[0].location);
+        // console.log(payload.users.yolo[0].location);
 
         console.log('path: ', path);
         // upload picture to cloudinary
