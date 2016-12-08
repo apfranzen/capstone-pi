@@ -54,6 +54,12 @@ watcher
               },
               json: true
             };
+            // post picture to heroku
+            rp(postPic)
+ +              .then(function (postPicResponse) {
+ +                console.log('postPicResponse sent: ', postPicResponse);
+ +              })
+          // error from heroku
           if(error){
             console.log('cloudinary error: ', error);
           }
