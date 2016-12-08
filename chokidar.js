@@ -44,7 +44,7 @@ watcher
           // POST image data to server
             var postPic = {
               method:'POST',
-              uri: 'https://gentle-shelf-53953.herokuapp.com/inbound/pic',
+              uri: 'https://gentle-shelf-53953.herokuapp.com/projects/Galvanize/Classroom/inbound/pic',
               body: {
                 // room: payload.users.yolo[0].location,
                 room: 'Classroom',
