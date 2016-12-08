@@ -23,6 +23,7 @@ watcher
       .then(function (findpayload) {
         var payload = JSON.parse(findpayload);
         console.log(payload);
+        console.log('payload: ', payload);
         var location = payload.users.anderson[0].location;
         // console.log(payload.users.yolo[0].location);
 
